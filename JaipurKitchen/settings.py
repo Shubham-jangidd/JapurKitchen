@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["jaipur-kitchen-140589185.ap-northeast-1.elb.amazonaws.com", "localhost", "127.0.0.1"]
 
+CSRF_TRUSTED_ORIGINS = ['https://jaipur-kitchen-140589185.ap-northeast-1.elb.amazonaws.com', 'http://jaipur-kitchen-140589185.ap-northeast-1.elb.amazonaws.com']
+
 
 # Application definition
 
