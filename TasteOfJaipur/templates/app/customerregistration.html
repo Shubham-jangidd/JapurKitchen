@@ -1,0 +1,57 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Signup and buy silver items online at lowest price{% endblock title %}
+
+{% block meta_tags %}
+
+       <meta name="og_title" property="og:title" content="Signup and buy silver items online at lowest price - SilverCraft.Store">
+
+        <meta name="Keywords" content="Online Store, Spiritual Items, Sterling Silver, Pure Silver, 92.5&percnt; pure, hallmaked, Jewellery, Silver Rings, Murti, Silver Gift Items, Silver Home Decoration, Silver Craft, Silver Arts, Silver Ganesha, Ganesh Murti">
+
+        <meta name="Description" content="Online store to buy Silver Idols, Gifts, Home Decoration, Spiritual and Antique Silver Items, Jewelry, Murti &amp; more. The best collection of silver handmade articles in different categories at lowest price in India. Accepted payment via - COD, Credit Card, Debit Card, UPI &amp; more.">
+
+        <meta property="og:description" content="Online store to buy Silver Idols, Gifts, Home Decoration, Spiritual and Antique Silver Items, Jewelry, Murti &amp; more. The best collection of silver handmade articles in different categories at lowest price in India. Accepted payment via - COD, Credit Card, Debit Card, UPI &amp; more.">
+
+        <link rel="canonical" href="https://www.silvercraft.store/registration/">
+
+        <meta name="og_url" property="og:url" content="https://www.silvercraft.store/registration/">
+
+{% endblock meta_tags %}
+
+
+{% block main-content %}
+<div class="login">
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+   <h3>Signup</h3>
+   <hr>
+
+   <form action="" method="post" novalidate class="shadow register-form  p-5">
+    {% if messages %}
+      {% for message in messages %}
+        <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}> {{message}} </p>
+      {% endfor %}
+    {% endif %}
+
+    {% csrf_token %}
+    {% for fm in form %}
+      <div class="form-grop mb-3">
+        {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+      </div>
+    {%endfor%}
+    <input type="submit" value="Submit" class="btn btn-primary">
+    <br>
+    <div class="text-center text-primary fw-bold">
+      <small>Existing User ? <a href="{% url 'login' %}" class="text-danger">Login Now</a></small></div>
+      {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+      <p class="alert alert-danger my-3">{{error}}</p>
+      {% endfor %}
+      {% endif %}
+   </form>
+  </div>
+ </div>
+</div>
+</div>
+{% endblock main-content %}
